@@ -1,0 +1,5 @@
+dataset: music
+num_neighbor_samples: 8
+rating_path: data/music/ratings_final.npy
+kg_path: data/music/kg_final.npy
+lp_depth: 5

@@ -1,0 +1,14 @@
+defaults:
+  - model: kgplcot_music
+  - dataset: music
+optimize:
+  n_epochs: 10  
+  iter_per_epoch: 1
+log:
+  show_loss: False
+  dry_run: False
+  ckpt_path: ckpt/
+  experiment_name: ???
+evaluate:
+  user_num_topk: 1000
+  

@@ -1,0 +1,8 @@
+dataset: music
+data_path: data/music/fold1.pkl
+rating_path: data/music/ratings_final.npy
+kg_path: data/music/kg_final.npy
+pathlist_path: data/music/path_list_6_32.pkl
+adj_entity_path: data/music/adj_entity_6_32.npy
+adj_relation_path: data/music/adj_relation_6_32.npy
+reachable_items_path: data/music/reachable_items.pkl
