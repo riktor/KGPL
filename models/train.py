@@ -62,7 +62,7 @@ def train(cfg, data):
     batch_size = cfg.optimize.batch_size
 
     saver = tf.train.Saver()
-
+    ckpt_path = Path(hydra.utils.to_absolute_path(cfg.log.ckpt_path))
     config = tf.ConfigProto(gpu_options=tf.GPUOptions(allow_growth=True))
     with tf.Session(config=config) as sess:
         logger.info(f"Session start!")
@@ -105,7 +105,8 @@ def train(cfg, data):
             k_list = topk_config[-1]
 
             ts = time.time()
-            export_path = Path(cfg.log.ckpt_path) / f"ckpt_{cfg.log.experiment_name}_{step}_{ts}"
+            path_name = f'ckpt_{cfg.log.experiment_name}_{step}_{ts}'
+            export_path = ckpt_path / f"{path_name}/{path_name}"
             saver.save(sess, str(export_path))
 
         pr_table, precision, recall = evaluate(

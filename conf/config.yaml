@@ -6,7 +6,6 @@ optimize:
   iter_per_epoch: 1
 log:
   show_loss: False
-  dry_run: False
   ckpt_path: ckpt/
   experiment_name: ???
 evaluate:
