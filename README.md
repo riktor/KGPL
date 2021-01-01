@@ -28,7 +28,12 @@ The codes are mainly based on the implementation of KGNN-LS by authors ([here](h
 - `conf/`:
   - `dataset`: "dataset_name.yaml" contains the path configurations;
   - `model`: "model_name.yaml" contains the model configurations;
-  - `config.yaml`: default config file; 
+  - `config.yaml`: default config file;
+  - `preprocess.yaml`: default config file for path finding;
+- `preprocess`:
+  - `preprocess.py`: preprocessing for raw rating files;
+  - `split_data.py`: script for splitting data;
+  - `make_path_list.py`: script for path finding;
 - `models`:
   - `train.py`: the implementation of training process;
   - `aggregators.py`: the aggregator of KGNN-LS;
@@ -41,7 +46,7 @@ The codes are mainly based on the implementation of KGNN-LS by authors ([here](h
   $ python preprocess/preprocess.py -d music
   $ python preprocess/make_path_list.py lp_depth=6 dataset=music kg_path=data/music/kg_final.npy rating_path=data/music/ratings_final.npy num_neighbor_samples=32
   $ python preprocess/split_data.py dataset=music rating_path=data/music/ratings_final.npy
-  $ python main.py model=kgplcot_music log.experiment_name=music_v4 optimize.n_epochs=40 dataset=music evaluate.user_num_topk=1000 log.show_loss=True
+  $ python main.py model=kgplcot_music log.experiment_name=music optimize.n_epochs=40 dataset=music evaluate.user_num_topk=2000 log.show_loss=True
   ```
 
 - Movie  
@@ -49,7 +54,7 @@ The codes are mainly based on the implementation of KGNN-LS by authors ([here](h
   $ python preprocess/preprocess.py -d movie
   $ python preprocess/make_path_list.py lp_depth=5 dataset=movie kg_path=data/movie/kg_final.npy rating_path=data/movie/ratings_final.npy num_neighbor_samples=32
   $ python preprocess/split_data.py dataset=movie rating_path=data/movie/ratings_final.npy
-  $ python main.py model=kgplcot_movie log.experiment_name=movie_v4 optimize.n_epochs=40 dataset=movie evaluate.user_num_topk=1000 log.show_loss=True
+  $ python main.py model=kgplcot_movie log.experiment_name=movie optimize.n_epochs=40 dataset=movie evaluate.user_num_topk=2000 log.show_loss=True
   ```
 
 - Book  
@@ -57,7 +62,7 @@ The codes are mainly based on the implementation of KGNN-LS by authors ([here](h
   $ python preprocess/preprocess.py -d book
   $ python preprocess/make_path_list.py lp_depth=6 dataset=book kg_path=data/book/kg_final.npy rating_path=data/book/ratings_final.npy num_neighbor_samples=8
   $ python preprocess/split_data.py dataset=book rating_path=data/book/ratings_final.npy
-  $ python main.py model=kgplcot_book log.experiment_name=book_v4 optimize.n_epochs=40 dataset=book evaluate.user_num_topk=1000 log.show_loss=True
+  $ python main.py model=kgplcot_book log.experiment_name=book optimize.n_epochs=40 dataset=book evaluate.user_num_topk=2000 log.show_loss=True
   ```
   
 You can suppress the logs for each training step (e.g. losses and gradients) by setting `log.show_loss=False`.

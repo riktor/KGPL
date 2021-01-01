@@ -1,0 +1,17 @@
+model_type: KGPL_COT
+neighbor_sample_size: 8
+dropout_rate: 0.8
+emb_dim: 64
+n_iter: 1
+plabel:
+  lp_depth: 6
+  par: 16
+  chunk_size: 800
+  pl_pn: 0.01
+  neg_pn: 1e-5
+optimize:
+  iter_per_epoch: 500
+  lr: 8e-3
+  batch_size: 12000
+log:
+  show_coverage: False

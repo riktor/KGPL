@@ -4,7 +4,6 @@ dropout_rate: 0.5
 emb_dim: 64
 n_iter: 1
 plabel:
-  start_epoch: 0
   lp_depth: 5
   par: 16
   chunk_size: 3000
@@ -12,5 +11,5 @@ plabel:
   neg_pn: 0.1
 optimize:
   iter_per_epoch: 20
-  lr: 0.005
+  lr: 5e-3
   batch_size: 9999
